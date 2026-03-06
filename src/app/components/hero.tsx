@@ -1,5 +1,5 @@
+import { CircuitBoard, Cpu, Lightbulb } from "lucide-react";
 import Link from "next/link";
-import { Cpu, ArrowRight, Lightbulb, Bug, CircuitBoard } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -16,7 +16,6 @@ export default function Hero() {
 
         <p className="mt-3 max-w-2xl text-neutral-600">
           Kom i gang raskt med eksempler, wiring-diagrammer, kode og feilsøking.
-          Alt samlet på ett sted.
         </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
