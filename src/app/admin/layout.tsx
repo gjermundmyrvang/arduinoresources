@@ -61,9 +61,6 @@ export default function AdminLayout({
           Admin
         </Link>
         <nav className="flex gap-4 text-sm">
-          <Link className="underline" href="/admin/new">
-            Ny ressurs
-          </Link>
           <button
             className="underline"
             onClick={async () => {
