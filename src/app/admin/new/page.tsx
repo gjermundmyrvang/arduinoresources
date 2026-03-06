@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabase/browser";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import RenderMarkdown from "../../components/render-markdown";
 
 function slugify(input: string) {
   return input
@@ -305,11 +306,7 @@ export default function AdminNewResource() {
               />
             ) : (
               <div className="px-3 py-3">
-                <div className="prose prose-neutral max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {contentMd || "_(tom)_"}
-                  </ReactMarkdown>
-                </div>
+                <RenderMarkdown content={contentMd || "_(tom)_"} />
               </div>
             )}
           </div>

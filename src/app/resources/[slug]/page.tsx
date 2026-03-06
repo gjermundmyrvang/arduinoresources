@@ -1,9 +1,12 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { CSSProperties, use, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { supabase } from "../../lib/supabase/browser";
+import RenderMarkdown from "../../components/render-markdown";
 
 type Resource = {
   title: string;
@@ -19,6 +22,8 @@ export default function ResourcePage(props: {
 
   const [resource, setResource] = useState<Resource | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const syntaxStyle = oneDark as { [key: string]: CSSProperties };
 
   useEffect(() => {
     async function load() {
@@ -64,16 +69,7 @@ export default function ResourcePage(props: {
         <p className="mt-2 text-neutral-600">{resource.summary}</p>
       )}
 
-      <div
-        className="prose prose-neutral max-w-none mt-8
-                   prose-pre:bg-neutral-900
-                   prose-pre:text-neutral-100
-                   "
-      >
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {resource.content_md}
-        </ReactMarkdown>
-      </div>
+      <RenderMarkdown content={resource.content_md} />
 
       {resource.links?.length > 0 && (
         <div className="mt-10">
