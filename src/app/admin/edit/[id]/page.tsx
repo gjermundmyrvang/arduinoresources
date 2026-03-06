@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/src/app/lib/supabase/browser";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import RenderMarkdown from "@/src/app/components/render-markdown";
 
 type LinkItem = { label: string; url: string };
 
@@ -445,11 +446,7 @@ export default function AdminEditResourcePage(props: {
               />
             ) : (
               <div className="px-3 py-3">
-                <div className="prose prose-neutral max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {contentMd || "_(tom)_"}
-                  </ReactMarkdown>
-                </div>
+                <RenderMarkdown content={contentMd || "_(tom)_"} />
               </div>
             )}
           </div>
