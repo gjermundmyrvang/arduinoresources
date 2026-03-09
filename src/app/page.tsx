@@ -63,8 +63,6 @@ export default function Home() {
             ["guide", "Guides"],
             ["example", "Eksempler"],
             ["inspiration", "Inspirasjon"],
-            ["reference", "Referanse"],
-            ["troubleshooting", "Feilsøking"],
           ] as const
         ).map(([value, label]) => (
           <button
