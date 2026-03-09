@@ -39,6 +39,7 @@ export default function AdminNewResource() {
   const [tags, setTags] = useState("arduino, beginner");
   const [featured, setFeatured] = useState(false);
   const [published, setPublished] = useState(false);
+  const [linksText, setLinksText] = useState(""); // one per line: Label | URL
 
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -217,6 +218,18 @@ export default function AdminNewResource() {
           />
         </div>
 
+        <div>
+          <label className="text-sm">Lenker (en per linje: Label | URL)</label>
+          <textarea
+            className="mt-1 w-full rounded-md border px-3 py-2 font-mono text-sm"
+            rows={4}
+            value={linksText}
+            onChange={(e) => setLinksText(e.target.value)}
+            placeholder={`Arduino Reference | https://www.arduino.cc/reference/en/\nDatasheet | https://...`}
+          />
+        </div>
+
+        {/* MARKDOWN */}
         <div>
           <label className="text-sm">Innhold (Markdown)</label>
 
