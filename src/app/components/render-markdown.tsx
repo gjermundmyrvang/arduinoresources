@@ -13,7 +13,7 @@ const syntaxStyle = oneDark as { [key: string]: CSSProperties };
 
 export default function RenderMarkdown({ content, className }: Props) {
   return (
-    <div className={className ?? "prose prose-neutral max-w-none"}>
+    <div className={className ?? "prose prose-neutral max-w-none mt-6"}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
