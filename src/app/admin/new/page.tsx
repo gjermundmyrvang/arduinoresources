@@ -1,11 +1,9 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "../../lib/supabase/browser";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { useMemo, useRef, useState } from "react";
 import RenderMarkdown from "../../components/render-markdown";
+import { supabase } from "../../lib/supabase/browser";
 
 function slugify(input: string) {
   return input
