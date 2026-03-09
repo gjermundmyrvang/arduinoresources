@@ -1,27 +1,10 @@
 "use client";
 
-import { use, useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { supabase } from "@/src/app/lib/supabase/browser";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import RenderMarkdown from "@/src/app/components/render-markdown";
-
-type LinkItem = { label: string; url: string };
-
-type ResourceRow = {
-  id: string;
-  title: string;
-  slug: string;
-  summary: string | null;
-  content_md: string;
-  type: string;
-  level: string;
-  tags: string[];
-  featured: boolean;
-  published: boolean;
-  links: LinkItem[];
-};
+import { supabase } from "@/src/app/lib/supabase/browser";
+import { LinkItem, ResourceRow } from "@/src/types";
+import { useRouter } from "next/navigation";
+import { use, useEffect, useMemo, useRef, useState } from "react";
 
 function slugify(input: string) {
   return input

@@ -3,20 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "../lib/supabase/browser";
-
-type ResourceRow = {
-  id: string;
-  title: string;
-  slug: string;
-  published: boolean;
-  featured: boolean;
-  type: string;
-  level: string;
-  updated_at: string;
-};
+import { Resource } from "@/src/types";
 
 export default function AdminPage() {
-  const [items, setItems] = useState<ResourceRow[]>([]);
+  const [items, setItems] = useState<Resource[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,7 +23,7 @@ export default function AdminPage() {
       setError(error.message);
       setItems([]);
     } else {
-      setItems((data ?? []) as ResourceRow[]);
+      setItems((data ?? []) as Resource[]);
     }
 
     setLoading(false);
