@@ -15,7 +15,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-3 max-w-2xl text-neutral-600">
-          Kom i gang raskt med eksempler, wiring-diagrammer, kode og feilsøking.
+          Kom i gang raskt med eksempler, forklaringer, kode og inspirasjon.
         </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -31,7 +31,7 @@ export default function Hero() {
         <div className="mt-8 flex flex-wrap gap-2 text-xs">
           <span className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
             <CircuitBoard size={14} />
-            Knapper · LED · Sensorer
+            Knapper · LED · Sensorer · Interaksjon
           </span>
 
           <span className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
