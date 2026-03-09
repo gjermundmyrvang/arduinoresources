@@ -1,12 +1,9 @@
 "use client";
 
-import { CSSProperties, use, useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { supabase } from "../../lib/supabase/browser";
+import { use, useEffect, useState } from "react";
+import Breadcrumb from "../../components/breadcrumb";
 import RenderMarkdown from "../../components/render-markdown";
+import { supabase } from "../../lib/supabase/browser";
 
 type Resource = {
   title: string;
@@ -22,8 +19,6 @@ export default function ResourcePage(props: {
 
   const [resource, setResource] = useState<Resource | null>(null);
   const [loading, setLoading] = useState(true);
-
-  const syntaxStyle = oneDark as { [key: string]: CSSProperties };
 
   useEffect(() => {
     async function load() {
@@ -63,11 +58,9 @@ export default function ResourcePage(props: {
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-3xl font-semibold">{resource.title}</h1>
-
-      {resource.summary && (
-        <p className="my-4 text-neutral-600">{resource.summary}</p>
-      )}
+      <Breadcrumb
+        items={[{ label: "Hjem", href: "/" }, { label: resource.title }]}
+      />
 
       <RenderMarkdown content={resource.content_md} />
 
