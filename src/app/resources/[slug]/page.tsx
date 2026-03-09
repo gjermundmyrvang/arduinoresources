@@ -66,7 +66,7 @@ export default function ResourcePage(props: {
       <h1 className="text-3xl font-semibold">{resource.title}</h1>
 
       {resource.summary && (
-        <p className="mt-2 text-neutral-600">{resource.summary}</p>
+        <p className="my-4 text-neutral-600">{resource.summary}</p>
       )}
 
       <RenderMarkdown content={resource.content_md} />
