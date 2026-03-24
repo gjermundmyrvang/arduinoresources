@@ -22,7 +22,7 @@ export default function Hero() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/resources/kom-i-gang-med-arduino"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium"
+              className="inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 text-sm font-medium"
             >
               <Lightbulb size={16} />
               Kom i gang
@@ -30,12 +30,12 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2 text-xs">
-            <span className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
+            <span className="flex items-center gap-1 bg-neutral-100 px-3 py-1 text-neutral-700">
               <CircuitBoard size={14} />
               Knapper · LED · Sensorer · Interaksjon
             </span>
 
-            <span className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
+            <span className="flex items-center gap-1 bg-neutral-100 px-3 py-1 text-neutral-700">
               <Lightbulb size={14} />
               Prosjektidéer
             </span>
