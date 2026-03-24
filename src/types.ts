@@ -15,7 +15,7 @@ export type Resource = {
 export type LinkItem = { label: string; url: string };
 
 export type ResourceRow = {
-  id: string;
+  id?: string;
   title: string;
   slug: string;
   summary: string | null;
@@ -26,4 +26,11 @@ export type ResourceRow = {
   featured: boolean;
   published: boolean;
   links: LinkItem[];
+};
+
+export type ResourceFormProps = {
+  initialValues?: Partial<ResourceRow>;
+  onSubmit: (fields: ResourceRow) => Promise<void>;
+  onDelete?: () => Promise<void>;
+  resourceId?: string; // for the image upload path
 };
