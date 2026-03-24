@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
         <div>
           <label className="text-sm">E-post</label>
           <input
-            className="mt-1 w-full rounded-md border px-3 py-2"
+            className="mt-1 w-full border px-3 py-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
         <div>
           <label className="text-sm">Passord</label>
           <input
-            className="mt-1 w-full rounded-md border px-3 py-2"
+            className="mt-1 w-full border px-3 py-2"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
         {error && <p className="text-sm text-red-600">{error}</p>}
 
         <button
-          className="w-full rounded-md bg-black px-3 py-2 text-white disabled:opacity-50"
+          className="w-full bg-black px-3 py-2 text-white disabled:opacity-50"
           disabled={loading}
         >
           {loading ? "Logger inn…" : "Logg inn"}

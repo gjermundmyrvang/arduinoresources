@@ -34,7 +34,7 @@ export default function RenderMarkdown({ content, className }: Props) {
 
             return (
               <code
-                className="rounded bg-neutral-100 px-1 py-0.5 font-mono text-sm"
+                className=" bg-neutral-100 px-1 py-0.5 font-mono text-sm"
                 {...props}
               >
                 {children}

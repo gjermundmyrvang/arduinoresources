@@ -70,7 +70,7 @@ export default function Home() {
             type="button"
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onClick={() => setTypeFilter(value as any)}
-            className={`rounded-full border px-3 py-1 text-sm ${
+            className={`border px-3 py-1 text-sm ${
               typeFilter === value
                 ? "bg-neutral-900 text-white border-neutral-900"
                 : "hover:bg-neutral-50"

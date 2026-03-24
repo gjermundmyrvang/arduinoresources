@@ -57,7 +57,7 @@ export default function AdminPage() {
 
       <div className="mt-6 space-y-3">
         {items.map((r) => (
-          <div key={r.id} className="rounded-xl border border-neutral-200 p-4">
+          <div key={r.id} className="border border-neutral-200 p-4">
             <div className="flex items-start justify-between gap-4">
               <div className="min-w-0">
                 <p className="font-medium truncate">{r.title}</p>
@@ -68,15 +68,13 @@ export default function AdminPage() {
 
               <div className="flex items-center gap-2 text-xs">
                 {r.featured && (
-                  <span className="rounded-full border px-2 py-1">
-                    featured
-                  </span>
+                  <span className="border px-2 py-1">featured</span>
                 )}
-                <span className="rounded-full border px-2 py-1">
+                <span className="border px-2 py-1">
                   {r.type} · {r.level}
                 </span>
                 <span
-                  className={`rounded-full px-2 py-1 ${
+                  className={`px-2 py-1 ${
                     r.published
                       ? "bg-green-100 text-green-700"
                       : "bg-neutral-100 text-neutral-700"
