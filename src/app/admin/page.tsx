@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "../lib/supabase/browser";
 import { Resource } from "@/src/types";
+import NotifyForm from "../components/email-form";
 
 export default function AdminPage() {
   const [items, setItems] = useState<Resource[]>([]);
@@ -105,6 +106,8 @@ export default function AdminPage() {
           </div>
         ))}
       </div>
+
+      <NotifyForm />
 
       {!loading && items.length === 0 && (
         <p className="mt-6 text-neutral-600">Ingen ressurser enda.</p>
