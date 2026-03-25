@@ -38,6 +38,8 @@ export default function RootLayout({
       <body
         className={`${baskervville.className} ${bitcount.variable} ${mono.variable} min-h-screen flex flex-col`}
       >
+        <CircuitBackground />
+        <main className="flex-1 mx-auto w-full max-w-4xl px-4 py-10">
           {children}
         </main>
 
