@@ -2,10 +2,25 @@ import type { Metadata } from "next";
 import Footer from "./components/footer";
 import "./globals.css";
 import { Baskervville } from "next/font/google";
+import { Bitcount_Grid_Single } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
+import CircuitBackground from "./components/circuit-background";
 
 const baskervville = Baskervville({
   weight: "400",
   subsets: ["latin"],
+});
+
+const bitcount = Bitcount_Grid_Single({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bitcount",
+});
+
+const mono = JetBrains_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -20,8 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${baskervville.className} min-h-screen flex flex-col`}>
-        <main className="flex-1 mx-auto w-full max-w-3xl px-4 py-10">
+      <body
+        className={`${baskervville.className} ${bitcount.variable} ${mono.variable} min-h-screen flex flex-col`}
+      >
+        <CircuitBackground />
+        <main className="flex-1 mx-auto w-full max-w-4xl px-4 py-10">
           {children}
         </main>
 

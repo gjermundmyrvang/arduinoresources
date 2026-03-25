@@ -1,47 +1,13 @@
-import { CircuitBoard, Cpu, Lightbulb } from "lucide-react";
-import Link from "next/link";
+import LCDScreen from "./lcd-screen";
 
 export default function Hero() {
   return (
-    <section className="mt-2">
-      <div className="border border-neutral-200 bg-white">
-        <div className="p-6 sm:p-10 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-neutral-500 bg-neutral-100">
-          <Cpu size={16} />
-          Arduino · Fysisk interaksjon · Prosjektressurser
-        </div>
-
-        <div className="p-6 sm:p-10">
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Ressurser for Arduino-prosjektet
-          </h1>
-
-          <p className="mt-3 max-w-2xl text-neutral-600">
-            Kom i gang raskt med eksempler, forklaringer, kode og inspirasjon.
-          </p>
-
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/resources/kom-i-gang-med-arduino"
-              className="inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 text-sm font-medium"
-            >
-              <Lightbulb size={16} />
-              Kom i gang
-            </Link>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-2 text-xs">
-            <span className="flex items-center gap-1 bg-neutral-100 px-3 py-1 text-neutral-700">
-              <CircuitBoard size={14} />
-              Knapper · LED · Sensorer · Interaksjon
-            </span>
-
-            <span className="flex items-center gap-1 bg-neutral-100 px-3 py-1 text-neutral-700">
-              <Lightbulb size={14} />
-              Prosjektidéer
-            </span>
-          </div>
-        </div>
-      </div>
+    <section className="mt-2 font-bitcount">
+      <LCDScreen statusLabel="ALL SYSTEMS UP AND RUNNING">
+        <h1 className="text-4xl font-bold tracking-tight">
+          Ressurser for Arduino-prosjektet
+        </h1>
+      </LCDScreen>
     </section>
   );
 }

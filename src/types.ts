@@ -34,3 +34,8 @@ export type ResourceFormProps = {
   onDelete?: () => Promise<void>;
   resourceId?: string; // for the image upload path
 };
+
+export type FilterOption<T extends string> = {
+  value: T;
+  label: string;
+};
