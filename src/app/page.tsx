@@ -1,22 +1,31 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { supabase } from "./lib/supabase/browser";
-import Hero from "./components/hero";
-import { BookOpen } from "lucide-react";
 import { Resource } from "../types";
+import Hero from "./components/hero";
 import ResourceList from "./components/resource-list";
+import { supabase } from "./lib/supabase/browser";
+import ArduinoFilter from "./components/filter";
+import ArduinoSearch from "./components/search-bar";
+import SubscribeForm from "./components/subscribe-form";
 
 export default function Home() {
   const [items, setItems] = useState<Resource[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState<"all" | Resource["type"]>("all");
 
-  const filteredItems =
-    typeFilter === "all" ? items : items.filter((r) => r.type === typeFilter);
+  const filteredItems = items.filter((r) => {
+    const matchesType = typeFilter === "all" || r.type === typeFilter;
+    const matchesSearch =
+      !search ||
+      r.title.toLowerCase().includes(search.toLowerCase()) ||
+      r.summary?.toLowerCase().includes(search.toLowerCase()) ||
+      r.tags?.some((t) => t.toLowerCase().includes(search.toLowerCase()));
+
+    return matchesType && matchesSearch;
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -55,36 +64,31 @@ export default function Home() {
   return (
     <main className="w-full px-4 py-10">
       <Hero />
-      <h1 className="mt-4 text-2xl font-semibold">Arduino-ressurser</h1>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {(
-          [
-            ["all", "Alle"],
-            ["guide", "Guides"],
-            ["example", "Eksempler"],
-            ["inspiration", "Inspirasjon"],
-          ] as const
-        ).map(([value, label]) => (
-          <button
-            key={value}
-            type="button"
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            onClick={() => setTypeFilter(value as any)}
-            className={`border px-3 py-1 text-sm ${
-              typeFilter === value
-                ? "bg-neutral-900 text-white border-neutral-900"
-                : "hover:bg-neutral-50"
-            }`}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="mt-4 flex flex-wrap items-end gap-4">
+        <ArduinoFilter
+          value={typeFilter}
+          onChange={setTypeFilter}
+          options={[
+            { value: "all", label: "Alle" },
+            { value: "guide", label: "Guides" },
+            { value: "example", label: "Eksempler" },
+            { value: "inspiration", label: "Inspirasjon" },
+          ]}
+          className="mt-4"
+        />
+        <ArduinoSearch
+          value={search}
+          onChange={setSearch}
+          placeholder="SEARCH..."
+          className="flex-1 min-w-48"
+        />
       </div>
 
       {loading && <p className="mt-6">Laster…</p>}
       {error && <p className="mt-6 text-sm text-red-600">Feil: {error}</p>}
 
       <ResourceList resources={filteredItems} />
+      <SubscribeForm />
     </main>
   );
 }
